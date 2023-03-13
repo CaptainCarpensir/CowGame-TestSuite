@@ -17,6 +17,10 @@ if __name__ == "__main__":
 
     score = solved_game.score_game()
 
+    unsolved_shape = unsolved_game.grid.shape
+    solved_shape = solved_game.grid.shape
+    assert unsolved_shape == solved_shape, "{}: solution grid size does not match input grid size: {} != {}".format(output_file, solved_shape, unsolved_shape)
+
     for m in range(len(unsolved_game.grid)):
         for n in range(len(unsolved_game.grid[m])):
             orig_char = unsolved_game.grid[m][n]
@@ -24,3 +28,5 @@ if __name__ == "__main__":
             assert normalized(new_char) == orig_char, "{}: solution makes illegal changes to grid at pos ({},{}): {} -> {}".format(output_file, m, n, orig_char, new_char)
 
     assert score >= MIN_COW_SCORE, "{}: solution does not meet the minimum score: {} < {}".format(output_file, score, MIN_COW_SCORE)
+
+    print(f"{output_file} success")

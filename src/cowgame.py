@@ -1,12 +1,15 @@
+import numpy as np
+
 class CowGame:
 	def __init__(self, input_filepath):
 		with open(input_filepath, "r") as input_file:
 			num_lines = int(input_file.readline().strip())
-			self.grid = []
+			self.grid = np.full((num_lines, num_lines), '.')
 
-			for i in range(num_lines):
+			for m in range(num_lines):
 				grid_row = input_file.readline()
-				self.grid.append(grid_row)
+				for n in range(num_lines):
+					self.grid[m][n] = grid_row[n]
 
 	def count_tiletype(self, type: str) -> int:
 		count = 0
