@@ -16,3 +16,5 @@ do
     # Verify solution correctness
     python3 src/verify-solution.py "src/tests/input/7x7test"$i".txt" "src/tests/output/7x7test"$i"-sol.txt" 2>> src/output/errors.txt
 done
+
+python3 src/analyze-outputs.py src/output/errors.txt src/output/times.txt
