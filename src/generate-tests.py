@@ -7,6 +7,12 @@ random.seed(0)
 NUM_TESTS = 500
 TEST_SIZES = [7]
 
+"""
+TODO: TEST GENERATION SHOULD BE DEPRECATED FOR A BETTER SOLUTION
+1. Tests should be verified to be correct (not unlikely to be impossible as they are now)
+2. Tests should be able to be given a number which specifies the minimum cows placed to normalize 
+"""
+
 def generate_test(filepath: str, grid_size: int):
     test_grid = np.full(shape=(grid_size, grid_size), fill_value='.')
 
@@ -41,5 +47,5 @@ def generate_test(filepath: str, grid_size: int):
 # Generate tests
 for size in TEST_SIZES:
     for test_num in range(NUM_TESTS):
-        test_name = "src/tests/input/{}x{}test{}.txt".format(size, size, test_num)
+        test_name = "src/tests/input/test{}.txt".format(test_num)
         generate_test(test_name, size)
